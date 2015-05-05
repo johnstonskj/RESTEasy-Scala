@@ -2,6 +2,8 @@
 
 This project provides a basic Scala bootstrap for building RESTEasy services. It includes a simple development environment using Jetty as the container and a local config for listing JAX-RS resources. 
 
+https://travis-ci.org/johnstonskj/RESTEasy-Scala.svg
+
 ## Configuration
 
 TBD
