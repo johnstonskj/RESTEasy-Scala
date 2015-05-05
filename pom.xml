@@ -5,6 +5,37 @@
 	<artifactId>RESTEasy-Scala</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 
+	<name>RESTEasy-Scala</name>
+	<url>https://github.com/johnstonskj/RESTEasy-Scala</url>
+	<description>Provide a bare-bones starting point for developing JAX-RS applications in Scala.</description>
+	<inceptionYear>2015</inceptionYear>
+	
+	<developers>
+		<developer>
+			<email>johnstonskj@gmail.com</email>
+			<name>Simon Johnston</name>
+			<url>https://github.com/johnstonskj</url>
+			<id>johnstonskj</id>
+		</developer>
+	</developers>
+	
+	<scm>
+		<url>https://github.com/johnstonskj/RESTEasy-Scala.git</url>
+	</scm>
+	
+	<issueManagement>
+		<url>https://github.com/johnstonskj/RESTEasy-Scala/issues</url>
+		<system>Github</system>
+	</issueManagement>
+
+	<licenses>
+		<license>
+			<name>MIT License</name>
+			<url>http://www.opensource.org/licenses/mit-license.php</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+	
 	<repositories>
 		<repository>
 			<id>JBoss repository</id>
