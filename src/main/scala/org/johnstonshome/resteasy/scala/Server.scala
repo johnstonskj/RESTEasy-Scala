@@ -1,14 +1,32 @@
 package org.johnstonshome.resteasy.scala
 
-import java.util.{Set => JSet, List => JList}
 import scala.collection.JavaConverters.mutableSetAsJavaSetConverter
+import scala.collection.JavaConversions._
+import java.util.{Set => JSet, List => JList}
+import javax.ws.rs.core.Application
+import javax.ws.rs.{Consumes, Produces}
+import javax.ws.rs.core.MediaType
+import javax.ws.rs.ext.{ContextResolver, Provider}
 import org.eclipse.jetty.server.Server
 import org.eclipse.jetty.servlet.ServletContextHandler
 import org.eclipse.jetty.servlet.ServletHolder
 import org.jboss.resteasy.plugins.server.servlet.HttpServletDispatcher
-import javax.ws.rs.core.Application
+import com.fasterxml.jackson.module.scala.DefaultScalaModule
+import com.fasterxml.jackson.databind.{DeserializationFeature, SerializationFeature, ObjectMapper}
 import com.typesafe.config.ConfigFactory
-import scala.collection.JavaConversions._
+
+@Provider
+@Consumes(Array(MediaType.APPLICATION_JSON))
+@Produces(Array(MediaType.APPLICATION_JSON))
+class ScalaObjectMapperProvider extends ContextResolver[ObjectMapper] {
+  def getContext(`type`: Class[_]): ObjectMapper = {
+    val objectMapper = new ObjectMapper();
+    objectMapper.registerModule(DefaultScalaModule)
+    objectMapper.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
+    objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+    return objectMapper;
+  }
+}
 
 object ServerConfig {
   
